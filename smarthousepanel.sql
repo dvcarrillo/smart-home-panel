@@ -2,8 +2,8 @@
 -- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 05-04-2017 a las 21:16:34
+-- Servidor: localhost
+-- Tiempo de generación: 07-04-2017 a las 23:36:33
 -- Versión del servidor: 10.1.21-MariaDB
 -- Versión de PHP: 7.1.1
 
@@ -27,7 +27,9 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `consumption` (
+  `id` int(11) NOT NULL,
   `Name` varchar(50) NOT NULL,
+  `type` int(11) NOT NULL,
   `currentC` double NOT NULL,
   `DayCom` varchar(1000) NOT NULL,
   `MonCom` varchar(1000) NOT NULL
@@ -67,13 +69,21 @@ CREATE TABLE `room` (
   `name` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Volcado de datos para la tabla `room`
+--
+
+INSERT INTO `room` (`id`, `name`) VALUES
+(1, 'Living room'),
+(2, 'Kitchen');
+
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `usuario`
+-- Estructura de tabla para la tabla `user`
 --
 
-CREATE TABLE `usuario` (
+CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `Name` varchar(50) NOT NULL,
   `login` varchar(50) NOT NULL,
@@ -92,6 +102,18 @@ ALTER TABLE `device`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `room`
+--
+ALTER TABLE `room`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -100,6 +122,16 @@ ALTER TABLE `device`
 --
 ALTER TABLE `device`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+DELIMITER $$
+--
+-- Eventos
+--
+CREATE DEFINER=`root`@`localhost` EVENT `consumption_adder` ON SCHEDULE EVERY 5 SECOND STARTS '2017-04-12 00:00:00' ENDS '2017-06-18 00:00:00' ON COMPLETION NOT PRESERVE ENABLE DO UPDATE consumption
+	SET DayCom = (((SELECT consumption FROM device) / 3600) * 5)
+    WHERE (SELECT type FROM device) = (SELECT type FROM consumption)$$
+
+DELIMITER ;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
