@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spotify Voice Player</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+
+    <script type="text/javascript" src="jQuery.js"></script>
+    <script type="text/javascript" src="annyang.js"></script>
+    <link rel="stylesheet" type="text/css" href="spotify.css">
+</head>
+<body>
+    <main>
+        <div id="commands">
+             <h1>Play songs through voice commands</h1>
+             <p>This demo uses speech recognition and the <a href="https://developer.spotify.com/web-api/">Spotify Web API</a> to play songs. Try it using some of the commands below. Remember to allow the use of the microphone.</p>
+            <p>For instance "Play Some Nights"</p>
+            
+            <h2>Voice commands</h2>
+            <ul>
+                <li>Play {song name}</li>
+                <li>Play {song name} by {artist name}</li>
+            </ul>
+        </div>
+        <div id="conversation"></div>
+    </main>
+    <footer>This demo uses the Spotify Web API and the library <a href="https://github.com/TalAter/annyang">annyang</a> to make it easy to match recognised text with rules.</footer>
+</body>
+
+<script type="text/javascript">
+    (function () {
+    var audio = new Audio();
+
+    function searchTracks(query) {
+        $.ajax({
+            url: 'https://api.spotify.com/v1/search',
+            data: {
+                q: query,
+                type: 'track'
+            },
+            success: function (response) {
+                if (response.tracks.items.length) {
+                    var track = response.tracks.items[0];
+                    audio.src = track.preview_url;
+                    audio.play();
+                    communicateAction('<div>Playing ' + track.name + ' by ' + track.artists[0].name + '</div><img width="150" src="' + track.album.images[1].url + '">');
+                }
+            }
+        });
+    }
+
+    function playSong(songName, artistName) {
+        var query = songName;
+        if (artistName) {
+            query += ' artist:' + artistName;
+        }
+
+        searchTracks(query);
+    }
+
+    function communicateAction(text) {
+        var rec = document.getElementById('conversation');
+        rec.innerHTML += '<div class="action">' + text + '</div>';
+    }
+
+    function recognized(text) {
+        var rec = document.getElementById('conversation');
+        rec.innerHTML += '<div class="recognized"><div>' + text + '</div></div>';
+    }
+
+    if (annyang) {
+        // Let's define our first command. First the text we expect, and then the function it should call
+        var commands = {
+            'stop': function () {
+                audio.pause();
+            },
+                'play track *song': function (song) {
+                recognized('Play track ' + song);
+                playSong(song);
+            },
+                'play *song by *artist': function (song, artist) {
+                recognized('Play song ' + song + ' by ' + artist);
+                playSong(song, artist);
+            },
+                'play song *song': function (song) {
+                recognized('Play song ' + song);
+                playSong(song);
+            },
+                'play *song': function (song) {
+                recognized('Play ' + song);
+                playSong(song);
+            },
+
+                ':nomatch': function (message) {
+                recognized(message);
+                communicateAction('Sorry, I don\'t understand this action');
+            }
+        };
+
+        // Add our commands to annyang
+        annyang.addCommands(commands);
+
+        // Start listening. You can call this here, or attach this call to an event, button, etc.
+        annyang.start();
+    }
+
+    annyang.addCallback('error', function () {
+        communicateAction('error');
+    });
+})();
+</script>
+</html>

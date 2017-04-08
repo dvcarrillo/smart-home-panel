@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+h1, h2, p {
+    margin-bottom: 20px;
+}
+h1 {
+    line-height: 1.3em;
+}
+body {
+    font-family: Helvetica, Arial;
+    font-size: 16px;
+    line-height: 1.3em;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+main {
+    flex: 1;
+    margin: 20px auto;
+    max-width: 800px;
+    padding: 0 20px;
+}
+footer {
+    background-color: #eee;
+    padding: 10px;
+    text-align: center
+}
+ul {
+    margin-left: 30px;
+}
+.action, .recognized {
+    padding: 10px;
+    position: relative;
+    margin-bottom: 10px;
+    width:80%;
+}
+.action {
+    text-align: right;
+    background-color: #ddd;
+    margin-left:20%;
+    border-radius: 5px 5px 0 5px;
+}
+.action:after {
+    content:"";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-width: 18px;
+    border-style: solid;
+    border-color: transparent transparent #ddd transparent;
+    bottom: 0px;
+    right: -17px;
+}
+.recognized {
+    text-align: left;
+    background-color: #eee;
+    font-weight: bold;
+    border-radius: 5px 5px 5px 0;
+}
+.recognized:after {
+    content:"";
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-width: 18px;
+    border-style: solid;
+    border-color: transparent transparent #eee transparent;
+    bottom: 0px;
+    left: -17px;
+}
+.recognized > div:before {
+    content: open-quote
+}
+.recognized > div:after {
+    content: close-quote
+}
+#conversation {
+    padding: 20px;
+}
+#conversation::before {
+    content:"";
+    height: 1px;
+    width: 200px;
+    background-color: #ddd;
+    display: block;
+    margin: 10px auto;
+}
+#conversation img {
+    margin-top: 5px;
+}
