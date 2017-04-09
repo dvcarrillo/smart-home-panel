@@ -10,6 +10,17 @@
 </head>
 <body>
     <main>
+
+        <div class="box">
+            <div class="icon-box">
+                <img src="spotify.png" alt="spotify-icon">
+            </div>
+            <div id='conversation2'>
+           
+            </div>
+        </div>
+
+
         <div id="commands">
              <h1>Play songs through voice commands</h1>
              <p>This demo uses speech recognition and the <a href="https://developer.spotify.com/web-api/">Spotify Web API</a> to play songs. Try it using some of the commands below. Remember to allow the use of the microphone.</p>
@@ -42,7 +53,9 @@
                     var track = response.tracks.items[0];
                     audio.src = track.preview_url;
                     audio.play();
-                    communicateAction('<div>Playing ' + track.name + ' by ' + track.artists[0].name + '</div><img width="150" src="' + track.album.images[1].url + '">');
+                    //communicateAction('<div>Playing ' + track.name + ' by ' + track.artists[0].name + '</div><img width="150" src="' + track.album.images[1].url + '">');
+                    communicateAction("<h3 class='artist' > "+ track.artist[0].name +
+                        "</h3> <p class='song'> " + track.name + '</p>');
                 }
             }
         });
