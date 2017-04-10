@@ -9,12 +9,16 @@ if(isset($home)){
   $var = "'";
   require_once("content/connector/connection.php");
   require_once("content/room/room_model.php");
+  require_once("content/device/device_model.php");
 }else{
   $var="'" . "../../";
   require_once("../connector/connection.php");
   require_once("../room/room_model.php");
+  require_once("../device/device_model.php");
+
 }
   $roomLister = new Room();
+  $DevicesLister = new Device();
 ?>
 <head>
   <meta charset="utf-8">
@@ -43,7 +47,7 @@ if(isset($home)){
   <header class="main-header">
 
     <!-- Logo -->
-    <a href="index.php" class="logo">
+    <a href=<?php echo $var; ?>index.php<?php echo "'";?> class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>SH</b>P</span>
       <!-- logo for regular state and mobile devices -->
@@ -139,7 +143,7 @@ if(isset($home)){
       <ul class="sidebar-menu">
         <li class="header">House</li>
         <!-- Optionally, you can add icons to the links -->
-        <li class="active"><a href="#"><i class="fa fa-home"></i> <span>DashBoard</span></a></li>
+        <li class=""><a href=<?php echo $var ?>index.php<?php echo "'";?> ><i class="fa fa-home"></i> <span>DashBoard</span></a></li>
      <!--   <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>-->
         <li class="treeview">
           <a href="#"><i class="fa  fa-list"></i> <span>Rooms</span>
@@ -148,9 +152,24 @@ if(isset($home)){
             </span>
           </a>
           <ul class="treeview-menu">
-          <?php $roomLister->getMenuList(); ?>
+          <?php if(isset($home)){ $roomLister->getMenuList();}else{ $roomLister->getMenuListNotMain();} ?>
           </ul>
         </li>
+
+        <!-- Device Type List -->
+        <li class="treeview">
+          <a href="#"><i class="fa   fa-sliders"></i> <span>Devices</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+          <?php if(isset($home)){ $DevicesLister->getDeviceMenuList();}else{ $DevicesLister->getDeviceMenuListNotMain();} ?>
+          </ul>
+        </li>
+        <!-- Device type list end -->
+
+
       </ul>
       <!-- /.sidebar-menu -->
     </section>

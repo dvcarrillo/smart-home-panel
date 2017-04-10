@@ -12,6 +12,7 @@ Backend controller -->
 require_once("content/connector/connection.php");
 require_once("content/room/room_model.php");
   $roomLister = new Room();
+
   $home = true;
   require_once("content/menus/header.php");
  ?>
@@ -24,7 +25,7 @@ require_once("content/room/room_model.php");
 			<section class="content-header">
 				<h1>Home<small><?php $hoy = date("F j, Y  g:i a"); echo $hoy; ?></small></h1>
 				<ol class="breadcrumb">
-					<li><a href="#"><i class="fa fa-dashboard"></i> Control Panel</a></li>
+					<li><a href="#"><i class="fa fa-home"></i> DashBoard</a></li>
 					<li class="active">Home</li>
 				</ol>
 			</section>
@@ -32,7 +33,7 @@ require_once("content/room/room_model.php");
 			<!-- Main content -->
 			<section class="content">
 				<div class="row">
-
+						<!-- 
 						<div class="weather-wrapper">
 						<div class="weather-card madrid">
 						<div class="weather-icon sun"></div>
@@ -40,10 +41,11 @@ require_once("content/room/room_model.php");
 						<p id="city"></p>
 						</div>
 						</div>	
+						-->
 
-
-				</div>
 				<!-- Your Page Content Here -->
+				</div>
+				
 
 			</section>
 		<!-- /.content -->

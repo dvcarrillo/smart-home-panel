@@ -39,18 +39,59 @@ Backend structure -->
 			}
 		}
 
-		public function printDevices() {
-			$sentence = "SELECT * FROM device";
+		public function printDevices($elec_type) {
+			if($elec_type == 4){
+				$sentence = "SELECT * FROM device";
+			}else{
+				$sentence = "SELECT * FROM device WHERE type=" . $elec_type;
+			}
 			foreach ($this->mbd->query($sentence) as $row) {
-	echo 	
-			"<div class='col-md-1 col-sm-6 col-xs-4'>
-			<div class='bg-aqua'>
-			<span class='info-box-icon back" . $row['type']; if(!$row['state']){echo " device-off";}; echo "'><p class='device-name'><a href='#'>" .  $row['name'] . "</a></p><!-- <i class='fa fa-bookmark-o'></i> --> 
-			<a href='#' class='small-box-footer-own'>Check Device</a></span>
-			</div>
-			</div>";
+				echo 	
+				"<div class='col-md-1 col-sm-6 col-xs-4'>
+				<div class='bg-aqua'>
+				<span class='info-box-icon back" . $row['type']; if(!$row['state']){echo " device-off";}; echo "'><p class='device-name'><a href='#'>" .  $row['name'] . "</a></p><!-- <i class='fa fa-bookmark-o'></i> --> 
+				<a href='#' class='small-box-footer-own'>Check Device</a></span>
+				</div>
+				</div>";
 
 			}
+			
+			
+		}
+
+
+
+		public function getDeviceMenuList() {
+			$sentence = "SELECT * FROM device";
+			foreach ($this->mbd->query($sentence) as $row) {
+				echo "<li><a href='content/device/device_controller.php?type=" . $row['type'] . "'>";
+				if($row['type'] == 1){
+					echo "Power";
+				}else if($row['type'] == 2){
+					echo "Heating";
+				}else if($row['type'] == 3){
+					echo "Water";
+				}
+				echo  "</a></li>";
+			}
+			echo "<li><a href='content/device/device_controller.php?type=4'> All</a></li> ";
+		}
+
+		//esto es una mierda, pero por ahora vale.
+		public function getDeviceMenuListNotMain() {
+			$sentence = "SELECT * FROM device";
+			foreach ($this->mbd->query($sentence) as $row) {
+				echo "<li><a href='../device/device_controller.php?type=" . $row['type'] . "'>";
+				if($row['type'] == 1){
+					echo "Power";
+				}else if($row['type'] == 2){
+					echo "Heating";
+				}else if($row['type'] == 3){
+					echo "Water";
+				}
+				echo  "</a></li>";
+			}
+			echo "<li><a href='../device/device_controller.php?type=4'> All</a></li> ";
 		}
 
 
