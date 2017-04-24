@@ -7,7 +7,7 @@
       <h1>
        
        <?php
-        if($_GET['type'] == 1){$type = "Power"; }else if($_GET['type'] == 2){$type = "Heating";}else if($_GET['type'] == 3){$type = "Water";} else if($_GET['type'] == 4){ $type = "All";};
+        if($_GET['type'] == 2){$type = "Power"; }else if($_GET['type'] == 3){$type = "Heating";}else if($_GET['type'] == 1){$type = "Water";} else if($_GET['type'] == 4){ $type = "All";};
         echo $type . " Devices";
         ?>
         <small><?php $hoy = date("F j, Y  g:i a"); echo $hoy; ?></small>

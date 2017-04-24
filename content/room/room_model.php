@@ -43,13 +43,30 @@ Backend structure -->
 					echo 	
 				"<div class='col-md-1 col-sm-6 col-xs-4'>
 				<div class='bg-aqua'>
-				<span class='info-box-icon back" . $row['type']; if(!$row['state']){echo " device-off";}; echo "'><p class='device-name'><a href='#'>" .  $row['name'] . "</a></p><!-- <i class='fa fa-bookmark-o'></i> --> 
+				<span class='info-box-icon back" . $row['type']; if(!$row['state']){echo " device-off";}; echo "'><p class='device-name'><a href=room_controller.php?id=". $_GET['id'] ."&seton=" . $row['id'] .  ">" .  $row['name'] . "</a></p><!-- <i class='fa fa-bookmark-o'></i> --> 
 				<a href='#' class='small-box-footer-own'>Check Device</a></span>
 				</div>
 				</div>";
 
 				}
 		}
+
+		public function switchDeviceROOM($id){
+			$sentence = $this->mbd->prepare("SELECT state from device WHERE id=".$id);
+			$sentence->execute();
+			$row = $sentence->fetch();
+			if($row[0] == 1){
+				$sentence = $this->mbd->prepare("UPDATE device SET state=0 WHERE id=".$id);
+				$sentence->execute();
+			}else if($row[0] == 0){
+				$sentence = $this->mbd->prepare("UPDATE device SET state=1 WHERE id=".$id);
+				$sentence->execute();
+			}		
+		}
+
+
+
+
 		public function getMenuList() {
 			$sentence = "SELECT * FROM room";
 			foreach ($this->mbd->query($sentence) as $row) {

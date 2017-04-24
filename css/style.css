@@ -3,14 +3,14 @@
 	padding-top: 15px;
 }
 
-.back2{
+.back1{
     background-color: #00c0ef !important;
     background-image: url("../images/drop.png");
     background-position:center;
 
 }
 
-.back1{
+.back2{
     background-color: #f39c12 !important;
     background-image: url("../images/electrick2.png");
      background-repeat: no-repeat;

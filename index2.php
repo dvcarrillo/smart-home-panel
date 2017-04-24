@@ -29,6 +29,8 @@ require_once("content/connector/connection.php");
   <link rel="stylesheet" href="assets/dist/css/skins/skin-blue.min.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/weather.css">
+    <link rel="stylesheet" href="css/TwitterStyle.css">
+
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -285,15 +287,105 @@ require_once("content/connector/connection.php");
             </div>
           </div>
         </div>
-
-
           <!-- /.info-box -->
         </div>
+
+        <div class="col-md-3 col-sm-6 col-xs-12">
+
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">Open modal for @fat</button>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Open modal for @getbootstrap</button>
+...more buttons...
+
+</div>
+<!-- twitter -->
+<div class="col-md-1 col-sm-6 col-xs-12">
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">New message</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="recipient-name" class="control-label">Recipient:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="control-label">Message:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Send message</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  <div class="tabs">
+  <div class="tabs-header">
+    <ul>
+      <li class="active"><a href="#tab-tweet" tab-id="tweet" ripple="ripple" ripple-color="#FFF"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+      <li><a href="#tab-notification" tab-id="notification" ripple="ripple" ripple-color="#FFF"><i id='notify' class="fa fa-pencil" aria-hidden="true"></i></a></li>
+    </ul>
+    <div class="slider"></div>
+  </div>
+  <div class="tabs-content">
+    <div tab-id="tweet" class="tab active">
+     <!-- <a class="twitter-timeline" href="https://twitter.com/MaterialUp" data-widget-id="687519205990608896">Tweets by @MaterialUp</a>-->
+     <a class="twitter-timeline" data-height="400" href="https://twitter.com/TwitterDev">Tweets by TwitterDev</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>  
+      <!-- Cambiar en funcion del usuario que se quiera mostrar -->
+     <!-- <a class="twitter-timeline" href="https://twitter.com/davidvargas996">Tweets by davidvargas996</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>-->
+      <script>
+        ! function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0],
+            p = /^http:/.test(d.location) ? 'http' : 'https';
+          if (!d.getElementById(id)) {
+            js = d.createElement(s);
+            js.id = id;
+            js.src = p + "://platform.twitter.com/widgets.js";
+            js.setAttribute('onload', "twttr.events.bind('rendered',function(e) {render()});");
+            fjs.parentNode.insertBefore(js, fjs);
+          }
+        }(document, "script", "twitter-wjs");
+      </script>
+    </div>
+    <div tab-id="notification" class="tab">
+      <textarea name="Tweet" placeholder="What's up?" class="tweet-field"></textarea>
+      <a id="tweet_limit" class="button"><i>140</i></a>
+      <a style="float:right" class="button"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+    </div>
+</div>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script src="js/TwitterJS.js"></script>
+</div>
+
+
+
+
+
+
+
+
+
 
       </div>
       </div>
       </div>
       <!-- Your Page Content Here -->
+
+
 
     </section>
     <!-- /.content -->
@@ -618,6 +710,22 @@ require_once("content/connector/connection.php");
     // We could use setInterval instead, but I prefer to do it this way
     setTimeout(mdraw, mrefreshinterval);
   }
+
+
+
+
+  $('#exampleModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  var recipient = button.data('whatever') // Extract info from data-* attributes
+  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+  var modal = $(this)
+  modal.find('.modal-title').text('New message to ' + recipient)
+  modal.find('.modal-body input').val(recipient)
+})
+
+
+
 </script>
 
 

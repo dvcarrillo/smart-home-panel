@@ -12,6 +12,10 @@ Backend controller -->
 		require_once("../connector/connection.php");
 		require_once("room_model.php");
 		$roomController = new Room();
+if(isset($_GET['seton'])){
+		$roomController->switchDeviceROOM($_GET['seton']);
+}	
+
 		require_once("room_view.php");
 		require_once("../menus/footer.php");
 ?>
