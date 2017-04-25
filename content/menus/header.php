@@ -11,25 +11,31 @@ if(isset($home)){
   require_once("content/room/room_model.php");
   require_once("content/device/device_model.php");
   require_once("content/events/evento.php");
+  require_once("content/events/notes.php");
+
 }else{
   $var="'" . "../../";
   require_once("../connector/connection.php");
   require_once("../room/room_model.php");
   require_once("../device/device_model.php");
-    require_once("../events/evento.php");
+  require_once("../events/evento.php");
+  require_once("../events/notes.php");
+
 
 
 }
   $roomLister = new Room();
   $DevicesLister = new Device();
   $anEvent = new Event();
-  if(isset($_POST['timeSet'])){
-/*
-    echo $_POST['idDevice'];
-    echo $_POST['optionsRadios'];
-    echo $_POST['timeSet'];
+  $notesController = new Note();
 
-    */
+
+
+  if(isset($_POST['nota'])){
+    $notesController->CreateNote($_POST['nota']);
+  }
+
+  if(isset($_POST['timeSet'])){
    $anEvent->CreateStatusEvent($_POST['idDevice'],$_POST['optionsRadios'],$_POST['timeSet']);
   }
 
@@ -84,18 +90,17 @@ if(isset($home)){
             <!-- Menu toggle button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-bell-o"></i>
-              <span class="label label-warning">10</span>
+              <span class="label label-warning"><?php  $notesController->getTotalNotes();  ?></span>
             </a>
             <ul class="dropdown-menu">
-              <li class="header">You have 10 notifications</li>
+              <li class="header">You have <?php  $notesController->getTotalNotes();  ?> notifications</li>
               <li>
                 <!-- Inner Menu: contains the notifications -->
                 <ul class="menu">
-                  <li><!-- start notification -->
-                    <a href="#">
-                      <i class="fa fa-users text-aqua"></i> 5 new members joined today
-                    </a>
-                  </li>
+                <!-- start notification -->
+                  <?php 
+                    $notesController->showNotes(); 
+                  ?>
                   <!-- end notification -->
                 </ul>
               </li>

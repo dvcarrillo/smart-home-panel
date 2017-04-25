@@ -82,3 +82,21 @@ margin-left: 5px;
     border-top: 3px solid #d2d6de;
     */
 }
+.right .direct-chat-text {
+     margin-right: 6px;
+    margin-left: 0;
+    padding-bottom: 20px;
+}
+
+.direct-chat-text {
+
+}
+.direct-chat-text:after, .direct-chat-text:before {
+
+    top: 13px;
+
+}
+
+.direct-chat-messages{
+    height: auto;
+}
