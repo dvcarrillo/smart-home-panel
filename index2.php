@@ -246,12 +246,8 @@ require_once("content/connector/connection.php");
         </div>
         <div class="col-md-4 col-sm-6 col-xs-12">
           <div class="info-box">
-            <span class="info-box-icon bg-green"><i class="fa fa-spotify spoty"></i></span>
-
-            <div class="info-box-content">
-              <span class="info-box-text">Nothing Else Matters</span>
-              <span class="info-box-number">Metallica</span>
-            </div>
+              <iframe src="https://embed.spotify.com/?uri=spotify%3Atrack%3A4n23ZlfbLWGWa05eLRYRXV" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>
+            
             <!-- /.info-box-content -->
           </div>
           <!-- /.info-box -->
