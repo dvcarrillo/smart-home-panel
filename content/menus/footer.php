@@ -90,6 +90,114 @@ if(isset($home)){$var = "'";}else{$var="'" . "../../";}
 </div>
 <!-- ./wrapper -->
 
+
+<!-- modal form -->
+<div class="modal fade " id="DevicePModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog box-bor" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel"></h4>
+      </div>
+      <div class="modal-body">
+        <form method='POST'>
+        <div class='row'>
+          <div class="col-lg-4 col-xs-4">   
+
+            <div class="form-group">
+                <label>IP Address:</label>
+                <div class="input-group">
+                  <div class="input-group-addon">
+                    <i class="fa fa-laptop"></i>
+                  </div>
+                  <input type="text" class="form-control" id='' data-inputmask="'alias': 'ip'" data-mask="" disabled></input>
+                </div>
+                  <!-- /.input group -->
+            </div> 
+          </div>
+            <div class="col-lg-4 col-xs-4">   
+
+            <div class="form-group">
+                <label>Current Compsumption:</label>
+                <div class="input-group">
+                  <div class="input-group-addon">
+               <i class="fa fa-signal" aria-hidden="true"></i>
+                  </div>
+                  <input type="text" class="form-control" id='modal-Comp' data-inputmask="'alias': 'ip'" data-mask="" disabled>
+                </div>
+                  <!-- /.input group -->
+            </div> 
+          </div>
+           <div class="col-lg-4 col-xs-4">   
+
+            <div class="form-group">
+                <label>State:</label>
+                <div class="input-group">
+                  <div class="input-group-addon">
+                  <i class="fa fa-power-off" aria-hidden="true"></i>
+                  </div>
+                  <input type="text" value='Device is ON' id='modal-State' class="form-control" data-inputmask="'alias': 'ip'" data-mask="" disabled>
+                </div>
+                  <!-- /.input group -->
+            </div> 
+          </div>
+
+        </div>
+          <div class="row">
+            <div class="col-lg-6 col-xs-6">   
+                <div class="form-group">
+                      <label>Timer Set:</label>
+                      <div class="input-group">
+                        <div class="input-group-addon">
+                          <i class="fa fa-calendar"></i>
+                        </div>
+                        <input type="datetime-local" name='timeSet' id='timeSet' class="form-control" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask="">
+                      </div>
+                      <!-- /.input group -->
+                </div>
+              
+
+              <div class="radio">
+                    <label class='radioT'><input  type="radio" name="optionsRadios" id="optionsRadios1" value="1" checked="">Turn ON</label>
+                    <label  class='radioT'><input type="radio" name="optionsRadios" id="optionsRadios1" value="0" checked="">Turn OFF</label>
+              </div>
+              <input  type="hidden" name='idDevice' class="form-control" id='modal-ip' ></input>
+
+            </div>
+
+            <div class="col-lg-6 col-xs-6">   
+                <div class="form-group">
+                      <label>Room:</label>
+                      <div class="input-group">
+                        <div class="input-group-addon">
+                         <i class="fa fa-home" aria-hidden="true"></i>
+                        </div>
+                        <input type="text" id='modal-room' class="form-control" value='Kitchen' disabled>
+                      </div>
+                      <!-- /.input group -->
+                </div>
+            </div>
+
+
+          </div>
+
+      </div>
+
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Set Timer</button>
+      </div>
+    </div>
+  </div>
+          </form>
+</div>
+<!-- end modal form -->
+
+
+
+
+
 <!-- REQUIRED JS SCRIPTS -->
 
 <!-- jQuery 2.2.3 -->
@@ -99,6 +207,38 @@ if(isset($home)){$var = "'";}else{$var="'" . "../../";}
 <!-- AdminLTE App -->
 <script src=<?php echo $var ?>assets/dist/js/app.min.js<?php echo "'";?>></script>
 <script src=<?php echo $var ?>js/weather.js<?php echo "'";?>></script>
+
+
+<!-- script for modals -->
+<script type="text/javascript">
+  $('#DevicePModal').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget) // Button that triggered the modal
+    var recipient = button.data('whatever') // Extract info from data-* attributes
+    var IP = button.data('ip') // Extract info from data-* attributes
+    var State = button.data('state') // Extract info from data-* 
+    var Comp = button.data('comp') // Extract info from data-* attributes
+    var room = button.data('room') // Extract info from data-* attributes
+
+    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+    var modal = $(this)
+    modal.find('.modal-title').text(recipient +" Properties")
+    document.getElementById("modal-ip").value = IP;
+    document.getElementById("modal-Comp").value = Comp;
+    document.getElementById("modal-State").value = State;
+    document.getElementById("modal-room").value = room;
+
+   // var today = moment().format('YYYY-MM-DD');
+ // $("#timeSet").val(today);
+
+  //  modal.find('.modal-body input').val(recipient)
+  })
+
+
+</script>
+<!-- end script for modals-->
+
+
 
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the

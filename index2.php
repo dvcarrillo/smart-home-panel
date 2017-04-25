@@ -29,6 +29,11 @@ require_once("content/connector/connection.php");
   <link rel="stylesheet" href="assets/dist/css/skins/skin-blue.min.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/weather.css">
+    <link rel="stylesheet" href="css/TwitterStyle.css">
+
+      <link rel="stylesheet" href="assets/plugins/timepicker/bootstrap-timepicker.min.css">
+
+
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -276,6 +281,10 @@ require_once("content/connector/connection.php");
           <!-- /.info-box -->
         </div>
         
+     
+
+
+
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="weather-wrapper">
             <div class="weather-card madrid">
@@ -285,15 +294,108 @@ require_once("content/connector/connection.php");
             </div>
           </div>
         </div>
-
-
           <!-- /.info-box -->
         </div>
+
+        <div class="col-md-3 col-sm-6 col-xs-12">
+
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Open modal for @mdo</button>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">Open modal for @fat</button>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Open modal for @getbootstrap</button>
+...more buttons...
+
+</div>
+
+ <div class="col-md-3 col-sm-6 col-xs-12">
+
+
+</div>
+
+
+<!--
+<div class="col-md-1 col-sm-6 col-xs-12">
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel"></h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="recipient-name" class="control-label">Recipient:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="control-label">Message:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Send message</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+-->
+<!-- twitter -->
+
+<!--
+  <div class="tabs">
+  <div class="tabs-header">
+    <ul>
+      <li class="active"><a href="#tab-tweet" tab-id="tweet" ripple="ripple" ripple-color="#FFF"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+      <li><a href="#tab-notification" tab-id="notification" ripple="ripple" ripple-color="#FFF"><i id='notify' class="fa fa-pencil" aria-hidden="true"></i></a></li>
+    </ul>
+    <div class="slider"></div>
+  </div>
+  <div class="tabs-content">
+    <div tab-id="tweet" class="tab active">
+     <a class="twitter-timeline" data-height="400" href="https://twitter.com/TwitterDev">Tweets by TwitterDev</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>  
+      <script>
+        ! function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0],
+            p = /^http:/.test(d.location) ? 'http' : 'https';
+          if (!d.getElementById(id)) {
+            js = d.createElement(s);
+            js.id = id;
+            js.src = p + "://platform.twitter.com/widgets.js";
+            js.setAttribute('onload', "twttr.events.bind('rendered',function(e) {render()});");
+            fjs.parentNode.insertBefore(js, fjs);
+          }
+        }(document, "script", "twitter-wjs");
+      </script>
+    </div>
+    <div tab-id="notification" class="tab">
+      <textarea name="Tweet" placeholder="What's up?" class="tweet-field"></textarea>
+      <a id="tweet_limit" class="button"><i>140</i></a>
+      <a style="float:right" class="button"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+    </div>
+</div>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  <script src="js/TwitterJS.js"></script>
+</div>
+
+
+
+-->
+
+
+
+
 
       </div>
       </div>
       </div>
       <!-- Your Page Content Here -->
+
+
 
     </section>
     <!-- /.content -->
@@ -398,6 +500,9 @@ require_once("content/connector/connection.php");
 <!-- AdminLTE App -->
 <script src="assets/dist/js/app.min.js"></script>
 <script src="js/weather.js"></script>
+
+<script src="assets/plugins/timepicker/bootstrap-timepicker.min.js"></script>
+
 
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
@@ -618,7 +723,88 @@ require_once("content/connector/connection.php");
     // We could use setInterval instead, but I prefer to do it this way
     setTimeout(mdraw, mrefreshinterval);
   }
+
+
+
+
+  $('#exampleModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  var recipient = button.data('whatever') // Extract info from data-* attributes
+  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+  var modal = $(this)
+  modal.find('.modal-title').text('New message to ' + recipient)
+  modal.find('.modal-body input').val(recipient)
+})
+
+ $(function () {
+    //Initialize Select2 Elements
+    $(".select2").select2();
+
+    //Datemask dd/mm/yyyy
+    $("#datemask").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
+    //Datemask2 mm/dd/yyyy
+    $("#datemask2").inputmask("mm/dd/yyyy", {"placeholder": "mm/dd/yyyy"});
+    //Money Euro
+    $("[data-mask]").inputmask();
+
+    //Date range picker
+    $('#reservation').daterangepicker();
+    //Date range picker with time picker
+    $('#reservationtime').daterangepicker({timePicker: true, timePickerIncrement: 30, format: 'MM/DD/YYYY h:mm A'});
+    //Date range as a button
+    $('#daterange-btn').daterangepicker(
+        {
+          ranges: {
+            'Today': [moment(), moment()],
+            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+            'This Month': [moment().startOf('month'), moment().endOf('month')],
+            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+          },
+          startDate: moment().subtract(29, 'days'),
+          endDate: moment()
+        },
+        function (start, end) {
+          $('#daterange-btn span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+        }
+    );
+
+    //Date picker
+    $('#datepicker').datepicker({
+      autoclose: true
+    });
+
+    //iCheck for checkbox and radio inputs
+    $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+      checkboxClass: 'icheckbox_minimal-blue',
+      radioClass: 'iradio_minimal-blue'
+    });
+    //Red color scheme for iCheck
+    $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
+      checkboxClass: 'icheckbox_minimal-red',
+      radioClass: 'iradio_minimal-red'
+    });
+    //Flat red color scheme for iCheck
+    $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
+      checkboxClass: 'icheckbox_flat-green',
+      radioClass: 'iradio_flat-green'
+    });
+
+    //Colorpicker
+    $(".my-colorpicker1").colorpicker();
+    //color picker with addon
+    $(".my-colorpicker2").colorpicker();
+
+    //Timepicker
+    $(".timepicker").timepicker({
+      showInputs: false
+    });
+  });
+
 </script>
+
 
 
 

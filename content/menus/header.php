@@ -10,15 +10,30 @@ if(isset($home)){
   require_once("content/connector/connection.php");
   require_once("content/room/room_model.php");
   require_once("content/device/device_model.php");
+  require_once("content/events/evento.php");
 }else{
   $var="'" . "../../";
   require_once("../connector/connection.php");
   require_once("../room/room_model.php");
   require_once("../device/device_model.php");
+    require_once("../events/evento.php");
+
 
 }
   $roomLister = new Room();
   $DevicesLister = new Device();
+  $anEvent = new Event();
+  if(isset($_POST['timeSet'])){
+/*
+    echo $_POST['idDevice'];
+    echo $_POST['optionsRadios'];
+    echo $_POST['timeSet'];
+
+    */
+   $anEvent->CreateStatusEvent($_POST['idDevice'],$_POST['optionsRadios'],$_POST['timeSet']);
+  }
+
+
 ?>
 <head>
   <meta charset="utf-8">

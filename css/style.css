@@ -3,14 +3,14 @@
 	padding-top: 15px;
 }
 
-.back2{
+.back1{
     background-color: #00c0ef !important;
     background-image: url("../images/drop.png");
     background-position:center;
 
 }
 
-.back1{
+.back2{
     background-color: #f39c12 !important;
     background-image: url("../images/electrick2.png");
      background-repeat: no-repeat;
@@ -58,6 +58,10 @@
     bottom: 0;
     width: 100%;
     margin-top: 29px;
+    border: 0;
+
+ box-shadow:none;
+ border-radius: 0px;
 }
 .small-box-footer-own:hover {
     color: #fff;
@@ -65,3 +69,16 @@
 }
 
 
+.radioT {
+margin-left: 5px;
+}
+
+
+.box-bor{
+    /*
+    border-top-color: #00c0ef;
+    border-radius: 3px;
+
+    border-top: 3px solid #d2d6de;
+    */
+}
