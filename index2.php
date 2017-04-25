@@ -31,9 +31,12 @@ require_once("content/connector/connection.php");
   <link rel="stylesheet" href="css/weather.css">
     <link rel="stylesheet" href="css/TwitterStyle.css">
 
+<<<<<<< HEAD
       <link rel="stylesheet" href="assets/plugins/timepicker/bootstrap-timepicker.min.css">
 
 
+=======
+>>>>>>> f07ca5209eb5da4f019547d071b157125b7c6f6f
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -306,6 +309,7 @@ require_once("content/connector/connection.php");
 ...more buttons...
 
 </div>
+<<<<<<< HEAD
 
  <div class="col-md-3 col-sm-6 col-xs-12">
 
@@ -314,6 +318,9 @@ require_once("content/connector/connection.php");
 
 
 <!--
+=======
+<!-- twitter -->
+>>>>>>> f07ca5209eb5da4f019547d071b157125b7c6f6f
 <div class="col-md-1 col-sm-6 col-xs-12">
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
@@ -321,7 +328,11 @@ require_once("content/connector/connection.php");
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+<<<<<<< HEAD
         <h4 class="modal-title" id="exampleModalLabel"></h4>
+=======
+        <h4 class="modal-title" id="exampleModalLabel">New message</h4>
+>>>>>>> f07ca5209eb5da4f019547d071b157125b7c6f6f
       </div>
       <div class="modal-body">
         <form>
@@ -343,10 +354,17 @@ require_once("content/connector/connection.php");
   </div>
 </div>
 
+<<<<<<< HEAD
 -->
 <!-- twitter -->
 
 <!--
+=======
+
+
+
+
+>>>>>>> f07ca5209eb5da4f019547d071b157125b7c6f6f
   <div class="tabs">
   <div class="tabs-header">
     <ul>
@@ -357,7 +375,14 @@ require_once("content/connector/connection.php");
   </div>
   <div class="tabs-content">
     <div tab-id="tweet" class="tab active">
+<<<<<<< HEAD
      <a class="twitter-timeline" data-height="400" href="https://twitter.com/TwitterDev">Tweets by TwitterDev</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>  
+=======
+     <!-- <a class="twitter-timeline" href="https://twitter.com/MaterialUp" data-widget-id="687519205990608896">Tweets by @MaterialUp</a>-->
+     <a class="twitter-timeline" data-height="400" href="https://twitter.com/TwitterDev">Tweets by TwitterDev</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>  
+      <!-- Cambiar en funcion del usuario que se quiera mostrar -->
+     <!-- <a class="twitter-timeline" href="https://twitter.com/davidvargas996">Tweets by davidvargas996</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>-->
+>>>>>>> f07ca5209eb5da4f019547d071b157125b7c6f6f
       <script>
         ! function(d, s, id) {
           var js, fjs = d.getElementsByTagName(s)[0],
@@ -384,7 +409,12 @@ require_once("content/connector/connection.php");
 
 
 
+<<<<<<< HEAD
 -->
+=======
+
+
+>>>>>>> f07ca5209eb5da4f019547d071b157125b7c6f6f
 
 
 
@@ -737,6 +767,7 @@ require_once("content/connector/connection.php");
   modal.find('.modal-body input').val(recipient)
 })
 
+<<<<<<< HEAD
  $(function () {
     //Initialize Select2 Elements
     $(".select2").select2();
@@ -802,6 +833,9 @@ require_once("content/connector/connection.php");
       showInputs: false
     });
   });
+=======
+
+>>>>>>> f07ca5209eb5da4f019547d071b157125b7c6f6f
 
 </script>
 

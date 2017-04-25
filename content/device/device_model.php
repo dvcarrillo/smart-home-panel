@@ -50,6 +50,7 @@ Backend structure -->
 				"<div class='col-md-1 col-sm-6 col-xs-4'>
 				<div class='bg-aqua'>
 				<span class='info-box-icon back" . $row['type']; if(!$row['state']){echo " device-off";}; echo "'><p class='device-name'><a href=device_controller.php?type=". $row['type'] ."&seton=" . $row['id'] .  ">" .  $row['name'] . "</a></p><!-- <i class='fa fa-bookmark-o'></i> --> 
+<<<<<<< HEAD
 					<button type='button' class='small-box-footer-own' data-toggle='modal' data-target='#DevicePModal' 
 					data-ip='" . $row['id']  ."'
 					data-Comp='". $row['consumption'] ."'
@@ -64,6 +65,9 @@ Backend structure -->
 					//	<a href='#' class='small-box-footer-own'>Check Device</a>
 				"
 				</span>
+=======
+				<a href='#' class='small-box-footer-own'>Check Device</a></span>
+>>>>>>> f07ca5209eb5da4f019547d071b157125b7c6f6f
 				</div>
 				</div>";
 
