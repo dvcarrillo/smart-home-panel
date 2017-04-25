@@ -44,8 +44,7 @@ body {
 .send-tweet {
 	position: relative;
 	left: 90px;
-	/*background-color: #E6E6E6;*/
-	background-color: white;
+	background-color: #E6E6E6;
 	border: 1px solid #E6E6E6;
 	border-radius: 5px;
 	height: 25px;
@@ -57,6 +56,6 @@ body {
 }
 
 .send-tweet:hover {
-	background-color: #E6E6E6;
-	border-color: #E6E6E6;
+	background-color: #D7D7D7;
+	border-color: #D7D7D7;
 }

@@ -44,7 +44,6 @@ Backend structure -->
 				"<div class='col-md-1 col-sm-6 col-xs-4'>
 				<div class='bg-aqua'>
 				<span class='info-box-icon back" . $row['type']; if(!$row['state']){echo " device-off";}; echo "'><p class='device-name'><a href=room_controller.php?id=". $_GET['id'] ."&seton=" . $row['id'] .  ">" .  $row['name'] . "</a></p><!-- <i class='fa fa-bookmark-o'></i> --> 
-<<<<<<< HEAD
 						<button type='button' class='small-box-footer-own' data-toggle='modal' data-target='#DevicePModal' 
 					data-ip='" . $row['id']  ."'
 					data-Comp='". $row['consumption'] ."'
@@ -55,9 +54,6 @@ Backend structure -->
 
 
 					 data-whatever='".$row['name'] . "'>Check Device</button></span>
-=======
-				<a href='#' class='small-box-footer-own'>Check Device</a></span>
->>>>>>> f07ca5209eb5da4f019547d071b157125b7c6f6f
 				</div>
 				</div>";
 
