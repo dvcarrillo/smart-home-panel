@@ -94,7 +94,7 @@ require_once("content/connector/connection.php");
               <!-- The user image in the navbar-->
               <img src="images/avatar.png" class="user-image" alt="User Image">
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
-              <span class="hidden-xs">Daniel Martin</span>
+              <span class="hidden-xs">Pepito Martin</span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
