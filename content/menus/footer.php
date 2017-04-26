@@ -207,6 +207,8 @@ if(isset($home)){$var = "'";}else{$var="'" . "../../";}
 <!-- AdminLTE App -->
 <script src=<?php echo $var ?>assets/dist/js/app.min.js<?php echo "'";?>></script>
 <script src=<?php echo $var ?>js/weather.js<?php echo "'";?>></script>
+<script src=<?php echo $var ?>assets/plugins/knob/jquery.knob.js<?php echo "'";?>></script>
+
 
 
 <!-- script for modals -->
@@ -236,6 +238,8 @@ if(isset($home)){$var = "'";}else{$var="'" . "../../";}
 
 
 </script>
+
+
 <!-- end script for modals-->
 
 
@@ -244,6 +248,73 @@ if(isset($home)){$var = "'";}else{$var="'" . "../../";}
      Both of these plugins are recommended to enhance the
      user experience. Slimscroll is required when using the
      fixed layout. -->
+
+<script type="text/javascript">
+var final_transcript = '';
+var recognizing = false;
+
+if ('webkitSpeechRecognition' in window) {
+
+  var recognition = new webkitSpeechRecognition();
+
+  recognition.continuous = true;
+  recognition.interimResults = true;
+
+  recognition.onstart = function() {
+    recognizing = true;
+  };
+
+  recognition.onerror = function(event) {
+    console.log(event.error);
+  };
+
+  recognition.onend = function() {
+    recognizing = false;
+    document.getElementById("notaI").value = document.getElementById("final_span").innerHTML;
+
+
+  };
+
+  recognition.onresult = function(event) {
+    var interim_transcript = '';
+    for (var i = event.resultIndex; i < event.results.length; ++i) {
+      if (event.results[i].isFinal) {
+        final_transcript += event.results[i][0].transcript;
+      } else {
+        interim_transcript += event.results[i][0].transcript;
+      }
+    }
+    final_transcript = capitalize(final_transcript);
+    final_span.innerHTML = linebreak(final_transcript);
+    interim_span.innerHTML = linebreak(interim_transcript);
+    
+  };
+}
+
+var two_line = /\n\n/g;
+var one_line = /\n/g;
+function linebreak(s) {
+  return s.replace(two_line, '<p></p>').replace(one_line, '<br>');
+}
+
+function capitalize(s) {
+
+  return s.replace(s.substr(0,1), function(m) { return m.toUpperCase(); });
+}
+
+function startDictation(event) {
+  if (recognizing) {
+    recognition.stop();
+    return;
+  }
+  final_transcript = '';
+  recognition.lang = 'es-ES';
+  recognition.start();
+  final_span.innerHTML = '';
+  interim_span.innerHTML = '';
+}
+</script>
+
 
 </body>
 </html>

@@ -228,22 +228,13 @@ require_once("content/connector/connection.php");
 
 
 
-      <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box bg-green">
-            <div class="inner">
-              <h3>Saving</h3>
-
-              <p>10% saved</p>
-            </div>
-            <div class="icon">
-              <i class="glyphicon glyphicon-tree-deciduous" style='font-size:65px;'></i>
-            </div>
-            <a href="#" class="small-box-footer">
-            Check Devices  
-            </a>
-          </div>
-        </div>
+		<div class="col-lg-3 col-xs-6">
+			<div class="small-box bg-green">
+				<div class="inner"><h3>Saving</h3><p>10% saved</p></div>
+				<div class="icon"><i class="glyphicon glyphicon-tree-deciduous" style='font-size:65px;'></i></div>
+				<a href="#" class="small-box-footer">Check Devices  </a>
+			</div>
+		</div> <!-- end 5 column -->	
         <div class="col-md-4 col-sm-6 col-xs-12">
           <div class="info-box">
               <iframe src="https://embed.spotify.com/?uri=spotify%3Atrack%3A4n23ZlfbLWGWa05eLRYRXV" width="300" height="80" frameborder="0" allowtransparency="true"></iframe>

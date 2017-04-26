@@ -59,6 +59,8 @@ if(isset($home)){
   <link rel="stylesheet" href=<?php echo $var ?>assets/dist/css/skins/skin-blue.min.css<?php echo "'";?>>
   <link rel="stylesheet" href=<?php echo $var ?>css/style.css<?php echo "'";?>>
   <link rel="stylesheet" href=<?php echo $var ?>css/weather.css<?php echo "'";?>>
+  
+
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">

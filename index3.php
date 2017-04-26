@@ -34,76 +34,29 @@ require_once("content/room/room_model.php");
 			<!-- Main content -->
 			<section class="content">
 				<div class="row">
-						<!-- 
-						<div class="weather-wrapper">
-						<div class="weather-card madrid">
-						<div class="weather-icon sun"></div>
-						<h1 id="temp"></h1>
-						<p id="city"></p>
-						</div>
-						</div>	
-						-->
-<div class="col-md-3">
- 
 
-          <!-- DIRECT CHAT WARNING -->
-          <div class="box box-warning direct-chat direct-chat-warning">
-          <form method="post">
-            <div class="box-header with-border">
-              <h3 class="box-title">Notes</h3>
-
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i> </button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-              </div>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <!-- Conversations are loaded here -->
-              <div class="direct-chat-messages">
-                <!-- Message. Default to the left -->
-                <div class="direct-chat-msg">
-                  <div class="direct-chat-info clearfix">
-                    <span class="direct-chat-name pull-left">Daniel Martin</span>
-                    <span class="direct-chat-timestamp pull-right">23 Jan 2:00 pm</span>
+          <div class="col-md-8">
+              <div class="box box-success">
+                  <div class="box-header with-border">
+                      <h3 class="box-title">Visitors Report</h3>
+                      <div class="box-tools pull-right">
+                          <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                          </button>
+                          <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                      </div>
                   </div>
-                  <!-- /.direct-chat-info -->
-                  <!-- /.direct-chat-text -->
-                </div>
-                <!-- /.direct-chat-msg -->
-                <!-- Message to the right -->
-                <div class="direct-chat-msg right">
-                  <!-- /.direct-chat-info -->
-                  <div class="direct-chat-text">
-                    	<div id="results">
-						<span  id="final_span" class="final"></span>
-						 <input type="hidden" id='notaI' name="nota" value='test' >
-						<span id="interim_span" class="interim"></span>
-						</div>
+                  <!-- /.box-header -->
+                  <div class="box-body no-padding">
+             <input type="text" class="knob" data-thickness="0.2" data-angleArc="250" data-angleOffset="-125" value="30" data-width="120" data-height="120" data-fgColor="#00c0ef">
+
+                  <div class="knob-label">data-angleArc="250"</div>
+
+
+                  <!-- /.row -->
                   </div>
-                  <!-- /.direct-chat-text -->
-                </div>
-                <!-- /.direct-chat-msg -->
+              <!-- /.box-body -->
               </div>
-              <!--/.direct-chat-messages-->
-            </div>
-            <!-- /.box-body -->
-            <div class="box-footer">
-
-                <div class="input-group">
-                      <span class="input-group-btn">
-                        <button type="submit" style='float:right; margin-left:10px;' class="btn btn-warning btn-flat">Send</button>
-                       <div type="submit" style='float:right;' class="btn btn-warning btn-flat"><a href="#" id="start_button" onclick="startDictation(event)"><i style='color: white;' class="fa fa-microphone" aria-hidden="true"></i></a></div> 
-                      </span>
-                </div>
-
-            </div>
-            <!-- /.box-footer-->
           </div>
-          <!--/.direct-chat -->
-        </form> 
-        </div>
-
 
 				<!-- Your Page Content Here -->
 				</div>
@@ -116,7 +69,6 @@ require_once("content/room/room_model.php");
  <?php
   require_once("content/menus/footer.php");
 ?>
-
 
 <script type="text/javascript">
 var final_transcript = '';

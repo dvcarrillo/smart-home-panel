@@ -118,6 +118,16 @@ Backend structure -->
 			}
 			echo "<li><a href='../device/device_controller.php?type=4'> All</a></li> ";
 		}
+		public function getNumberOfDevicesRunning($type){
+			$sentence =  $this->mbd->prepare("SELECT * FROM device WHERE type=$type AND state=1");
+			$sentence->execute();
+			$cuenta = $sentence->rowCount();
+			$sentence2 =  $this->mbd->prepare("SELECT * FROM device WHERE type=$type ");
+			$sentence2->execute();
+			$cuenta2 = $sentence2->rowCount();
+
+			echo $cuenta . " of " . $cuenta2;
+		}
 
 
 
