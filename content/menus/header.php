@@ -12,7 +12,7 @@ if(isset($home)){
   require_once("content/device/device_model.php");
   require_once("content/events/evento.php");
   require_once("content/events/notes.php");
-
+  require_once("content/events/widget-graph.php");
 }else{
   $var="'" . "../../";
   require_once("../connector/connection.php");
@@ -20,7 +20,7 @@ if(isset($home)){
   require_once("../device/device_model.php");
   require_once("../events/evento.php");
   require_once("../events/notes.php");
-
+  require_once("../events/widget-graph.php");
 
 
 }
@@ -59,7 +59,8 @@ if(isset($home)){
   <link rel="stylesheet" href=<?php echo $var ?>assets/dist/css/skins/skin-blue.min.css<?php echo "'";?>>
   <link rel="stylesheet" href=<?php echo $var ?>css/style.css<?php echo "'";?>>
   <link rel="stylesheet" href=<?php echo $var ?>css/weather.css<?php echo "'";?>>
-  
+  <link rel="stylesheet" href=<?php echo $var ?>css/widget-chart.css<?php echo "'";?>>
+
 
 </head>
 

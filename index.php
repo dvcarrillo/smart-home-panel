@@ -15,6 +15,7 @@ require_once("content/room/room_model.php");
 
   $home = true;
   require_once("content/menus/header.php");
+  $widgetManager = new Widget();
  ?>
 
 
@@ -23,7 +24,7 @@ require_once("content/room/room_model.php");
 	<div class="content-wrapper">
 		<!-- Content Header (Page header) -->
 			<section class="content-header">
-				<h1>Home<small><?php $hoy = date("F j, Y  g:i a"); echo $hoy; ?></small></h1>
+				<h1>Home<small><?php $hoy = date("F j, Y  g:i a", strtotime('+1 hours')); echo $hoy; ?></small></h1>
 				<ol class="breadcrumb">
 					<li><a href="#"><i class="fa fa-home"></i> DashBoard</a></li>
 					<li class="active">Home</li>
@@ -59,7 +60,16 @@ require_once("content/room/room_model.php");
 								</div>
 							</div> <!-- end 4 column -->
 
+<?php $widgetManager->printWidget("Water");
+	$widgetManager->printWidget("Power");
+		$widgetManager->printWidget("Heating");
+  ?>
+<!-- START TEST -->
 
+
+
+
+<!-- END TEST-->
 						</div>	<!-- end row 1 -->
 					</div>
 					<div class="col-lg-3 col-xs-12">
@@ -79,7 +89,8 @@ require_once("content/room/room_model.php");
 												<div class="direct-chat-msg">
 													<div class="direct-chat-info clearfix">
 														<span class="direct-chat-name pull-left">Daniel Martin</span>
-														<span class="direct-chat-timestamp pull-right">23 Jan 2:00 pm</span>
+														<span class="direct-chat-timestamp pull-right"><?php $hoy = date("j F   g:i a", strtotime('+1 hours')); echo $hoy; ?>
+														</span>
 													</div>
 												</div><!-- /.direct-chat-messages -->
 												<div class="direct-chat-msg right">
@@ -124,6 +135,8 @@ require_once("content/room/room_model.php");
 			
 					
 				</div>
+
+				<BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR><BR>
 			</section>
 		<!-- /.content -->
 	</div>

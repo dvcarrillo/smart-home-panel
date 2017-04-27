@@ -207,7 +207,9 @@ if(isset($home)){$var = "'";}else{$var="'" . "../../";}
 <!-- AdminLTE App -->
 <script src=<?php echo $var ?>assets/dist/js/app.min.js<?php echo "'";?>></script>
 <script src=<?php echo $var ?>js/weather.js<?php echo "'";?>></script>
-<script src=<?php echo $var ?>assets/plugins/knob/jquery.knob.js<?php echo "'";?>></script>
+
+<script src=<?php echo $var ?>js/widget-chart-js.js<?php echo "'";?>></script>
+<script src='http://code.highcharts.com/highcharts.js'></script>
 
 
 
@@ -314,6 +316,8 @@ function startDictation(event) {
   interim_span.innerHTML = '';
 }
 </script>
+
+
 
 
 </body>
