@@ -5,8 +5,7 @@ Web panel for administrating components in a smart home
 By David Vargas Carrillo, Daniel Martín Martínez
 Lappeenranta University of Technology, 2017 -->
 
-<!-- device_controller.php
-Backend controller -->
+<!-- Backend controller -->
 
 <?php
 require_once("content/connector/connection.php");
@@ -37,7 +36,7 @@ require_once("content/room/room_model.php");
 					<div class="col-lg-9 col-xs-12">
 						<div class="row">
 
-							<div class="col-lg-4 col-xs-12">
+							<div class="col-lg-4 col-md-4 col-xs-12">
 								<div class="small-box bg-aqua">
 									<div class="inner"><h3>Water</h3><p><?php $DevicesLister->getNumberOfDevicesRunning(1); ?> devices running</p></div>
 									<div class="icon"><i class="glyphicon glyphicon-tint" style='font-size:65px;'></i></div>
@@ -45,14 +44,14 @@ require_once("content/room/room_model.php");
 								</div>
 							</div> <!-- end 2 column -->
 
-							<div class="col-lg-4 col-xs-12">
+							<div class="col-lg-4 col-md-4 col-xs-12">
 								<div class="small-box bg-yellow color-palette">
 									<div class="inner"><h3>Power</h3><p><?php $DevicesLister->getNumberOfDevicesRunning(2); ?> devices running</p></div>
 									<div class="icon"><i class="glyphicon glyphicon-flash" style='font-size:65px;'></i></div>
 									<a href="content/device/device_controller.php?type=2" class="small-box-footer">Check Devices  </a>
 								</div>
 							</div> <!-- end 3 column -->
-							<div class="col-lg-4 col-xs-12">
+							<div class="col-lg-4 col-md-4 col-xs-12">
 								<div class="small-box bg-red disabled color-palette">
 									<div class="inner"><h3>Heating</h3><p><?php $DevicesLister->getNumberOfDevicesRunning(3); ?> devices running</p></div>
 									<div class="icon"><i class="glyphicon glyphicon-fire" style='font-size:65px;'></i></div>
@@ -60,21 +59,15 @@ require_once("content/room/room_model.php");
 								</div>
 							</div> <!-- end 4 column -->
 
-<?php $widgetManager->printWidget("Water");
-	$widgetManager->printWidget("Power");
-		$widgetManager->printWidget("Heating");
-  ?>
-<!-- START TEST -->
-
-
-
-
-<!-- END TEST-->
+							<?php 	$widgetManager->printWidget("Water");
+									$widgetManager->printWidget("Power");
+									$widgetManager->printWidget("Heating");
+							?>
 						</div>	<!-- end row 1 -->
 					</div>
-					<div class="col-lg-3 col-xs-12">
+					<div class="col-lg-3 col-md-3 col-xs-12">
 						<div class="row">
-							<div class="col-lg-12 col-xs-12">
+							<div class="col-lg-12 col-md-12 col-xs-12">
 								<div class="box box-warning direct-chat direct-chat-warning">
 									<form method="post">
 										<div class="box-header with-border">
@@ -116,7 +109,7 @@ require_once("content/room/room_model.php");
 									</form>
 								</div>
 							</div>
-							<div class="col-lg-12 col-xs-12">
+							<div class="col-lg-12 col-md-12 col-xs-12">
 								<div class="weather-wrapper">
 									<div class="weather-card madrid">
 										<div class="weather-icon sun"></div>
@@ -126,7 +119,7 @@ require_once("content/room/room_model.php");
 								</div>			
 							</div> <!-- end 6 column -->
 
-							<div class="col-lg-9 col-xs-12" style='padding-top: 15px;'>
+							<div class="col-lg-9 col-md-9 col-xs-12" style='padding-top: 15px;'>
 								<iframe src="https://embed.spotify.com/?uri=spotify%3Auser%3Aplay2%3Aplaylist%3A5ROk6ELkqZ8kdZ878WcvIa&theme=white"  frameborder="0" height="100" width="243" allowtransparency="true"></iframe>
 							</div> <!-- end 6 column -->			
 
