@@ -13,7 +13,4 @@ integration.
 Smart Home Panel has been made to be easy to use and functional. It is suitable for any user and environment.
 Its responsive design makes it perfect for accessing it from a PC, tablet or smarphone.
 
-**For more information, see the [product presentation](home-panel/SHP_Presentation.pdf).**
-
-
-*This project has been made for Software Systems as a Service subject at Lappeenranta University of Technology*
+**For more information, see the [product presentation](https://github.com/dvcarrillo/home-panel/blob/master/SHP_Presentation.pdf).**
