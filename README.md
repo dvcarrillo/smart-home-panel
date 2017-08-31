@@ -1,7 +1,7 @@
 # Smart Home Panel
 
 ## What is it?
-**Smart Home Panel is a web dashboard made for controlling and monitoring smart devices intalled in a 
+**Smart Home Panel is a web dashboard made for controlling and monitoring smart devices installed in a 
 smart home.** The panel classifies the devices by room and type, and gets live consumption information, 
 which is also classified and traced, indicating current and daily consumption, and showing today's savings.
 The user is able to power on and off devices in a simple click, to see detailed information about them and
